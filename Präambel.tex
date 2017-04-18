@@ -4,8 +4,6 @@
 \usepackage[ngerman]{babel}				% Sprachpaket 
 \usepackage[T1]{fontenc}				% Umlaute bei \hyphenation verwenden können (Silbentrennung)
 \usepackage[onehalfspacing]{setspace}	% Setzt das Dokument auf 1,5x Zeilenabstand
-\usepackage[headsepline]{scrpage2}		% Kopfzeile
-\usepackage[all]{nowidow}				% Schusterjungen und Hurenkinder
 
 \usepackage{							% standard Krempel
 	amsmath,
@@ -42,19 +40,14 @@
 \usetocstyle{allwithdot} 
 
 % Formatierungen
-\usepackage{romannum}					% Römische Nummern schreiben mit '\romannum{integer}'
-%\newcommand{\Rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}		% Römische Nummern schreiben mit '\Rom{integer}' (nötig für Verwendung in \section{})
+\usepackage{eurosym}					% €-Zeichen mit \euro darstellbar oder durch \EUR{betrag}
+
 \setlength{\parindent}{0in} 			% Absatz, erste Zeile wird global NICHT eingerückt
 %\usepackage{parskip}					% setzt einen Abstand nach einem \par Absatz
-\usepackage{rotating}					% erlaubt das rotieren eines Elements
-\newcommand\tabrotate[1]{\begin{turn}{90}\rlap{#1}\end{turn}}	% kurzbefehl für das Rotieren eines Elements
+\usepackage{rotating}
+\newcommand\tabrotate[1]{\begin{turn}{90}\rlap{#1}\end{turn}}
 
-
-% Custom colors
-\usepackage{color}
-\definecolor{deepblue}{rgb}{0,0,0.5}	% definiert ein tiefes Blau
-\definecolor{deepred}{rgb}{0.6,0,0}		% definiert ein tiefes Rot
-\definecolor{deepgreen}{rgb}{0,0.5,0}	% definiert ein tiefes Grün
+\usepackage[headsepline]{scrpage2}		% Kopfzeile
 
 \usepackage[							% Verlinkung aller \ref,url,etc.
 colorlinks=true,
@@ -64,7 +57,7 @@ linkcolor=black
 ]{hyperref}								
 
 \usepackage{wasysym}					% zusätzliche Symbole verwenden (Checkbox)
-\usepackage{listings}					% ermölgicht Zeichengenaues Zitieren (für Programmcode) \verb|Zitat|
+\usepackage{listings}
 
 
 % Silbentrennung
@@ -76,26 +69,26 @@ linkcolor=black
 	\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0\do\&} 	 
 
 %\sloppy								% Nachlässige Silbentrennung, Blocksatzoptimiert
-\hyphenation{OpenOCD To-po-lo-gie-in-for-ma-ti-onen Fer-ti-gungs-au-to-ma-ti-on Kom-mu-ni-ka-tions-ein-heit CANopen-Kom-mu-ni-ka-tions-ein-heit}					% Worte, die NICHT oder nur auf bestimmte Weise getrennt werden sollen
+\hyphenation{OpenOCD}					% Worte, die NICHT oder nur auf bestimmte Weise getrennt werden sollen
 
+% Schusterjungen und Hurenkinder
+\usepackage[all]{nowidow}
+%\clubpenalty = 10000 % schliesst Schusterjungen aus
+%\widowpenalty = 10000 
+%\displaywidowpenalty = 10000% schliesst Hurenkinder aus 
 
-% \paragraph mit Zeilenumbruch versehen 
-% -begin-----------------------------------------------------------
-\makeatletter
-\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-	{-3.25ex\@plus -1ex \@minus -.2ex}%
-	{1.5ex \@plus .2ex}%
-	{\normalfont\normalsize\bfseries}}
-\makeatother
-% -end-------------------------------------------------------------
-
-
-% Python
-% -begin----------------------------------------------------------
-% Include Python-Programmcode with Syntax-Highlighting
+%Include Python-Programmcode with Syntax-Highlighting
 % Default fixed font does not support bold face
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{11} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{11}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
 
 % Python style for highlighting
 \newcommand\pythonstyle{\lstset{
@@ -111,7 +104,8 @@ linkcolor=black
 }}
 
 
-\lstnewenvironment{python}[1][]		% Python environment
+% Python environment
+\lstnewenvironment{python}[1][]
 {
 	\pythonstyle
 	\lstset{#1}
@@ -125,4 +119,14 @@ linkcolor=black
 
 % Python for inline
 \newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
-% -end------------------------------------------------------------
+
+% Definition von Funktionen
+
+% \paragraph mit Zeilenumbruch versehen ---------------------------
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+	{-3.25ex\@plus -1ex \@minus -.2ex}%
+	{1.5ex \@plus .2ex}%
+	{\normalfont\normalsize\bfseries}}
+\makeatother
+%------------------------------------------------------------------
