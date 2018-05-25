@@ -127,9 +127,9 @@
 	urlcolor=cyan							% Farbe für URL-Links (Web, Mail).
 }
 
-\renewcaptionname{ngerman}\sectionautorefname{Kapitel}				% Ändern von \autoref(section): Abschnitt 			-> Kapitel
-\renewcaptionname{ngerman}\subsectionautorefname{Kapitel}			% Ändern von \autoref(section): Unterabschnitt 		-> Kapitel
-\renewcaptionname{ngerman}\subsubsectionautorefname{Kapitel}		% Ändern von \autoref(section): Unterunterabschnitt	-> Kapitel
+\renewcaptionname{ngerman}\sectionautorefname{Kapitel}			% Ändern von \autoref(section): Abschnitt 			-> Abschnitt
+\renewcaptionname{ngerman}\subsectionautorefname{Kapitel}			% Ändern von \autoref(section): Unterabschnitt 		-> Abschnitt
+\renewcaptionname{ngerman}\subsubsectionautorefname{Kapitel}		% Ändern von \autoref(section): Unterunterabschnitt	-> Abschnitt
 \newcommand{\subfigureautorefname}{\figureautorefname}		% Ändern von \autoref(subfloat): ~	-> tt
 
 \usepackage{cleveref}						% \cref ist ähnlich wie \ref, schreibt aber Abb., Tab., usw. vor die verlinkte Gleitumgebung
@@ -144,8 +144,8 @@
 			]{glossaries}										% Erlaubt Glossar, Abkürzungsverzeichnis, Symbolverzeichnis und mehr...
 \newglossary[slg]{symbolslist}{syi}{syg}{Symbolverzeichnis}		% Ein eigenes Symbolverzeichnis erstellen
 \renewcommand*{\glspostdescription}{}							% Den Punkt am Ende jeder Beschreibung deaktivieren
-\newcommand{\glsit}[1]{\textit{\gls{#1}}}						% Neues Kommando \glos{} = \gls{} mit Link als kursivem Text
-\newcommand{\glsplit}[1]{\textit{\glspl{#1}}}					% Neues Kommando \glospl{} = \glspl{} mit Link als kursivem Text
+\newcommand{\glsit}[1]{\textit{\gls{#1}}}						% Neues Kommando \glsit{} = \gls{} mit Link als kursivem Text
+\newcommand{\glsplit}[1]{\textit{\glspl{#1}}}					% Neues Kommando \glsplit{} = \glpl{} mit Link als kursivem Text
 \makeglossaries													% Glossar-Befehle anschalten
 
 
